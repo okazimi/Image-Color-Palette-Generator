@@ -1,0 +1,48 @@
+<!-- IMPORT BOOTSTRAP -->
+{% extends "bootstrap/base.html" %}
+
+{% block styles %}
+{{super()}}
+  <!-- CSS/FONT AWESOME IMPORTS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <script src="https://kit.fontawesome.com/76bec3ae94.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+<!-- HTML PAGE TITLE -->
+{% block title %}Image Color Palette Generator{% endblock %}
+
+{% block content %}
+  <!-- TITLE -->
+  <div>
+    <h1 id="title">The Image Color Palette Generator</h1>
+  </div>
+
+  <!-- DESCRIPTION -->
+  <div>
+    <h3 id="desc">Use the buttons below to upload your image, and we'll tell you the most popular colors in that image</h3>
+  </div>
+
+  <!-- FORM -->
+  <form enctype="multipart/form-data" action="{{ url_for('home') }}" method="post">
+    <!-- FLASH MESSAGE -->
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <!-- PROMPT USER TO SELECT FILE (OPEN FILE EXPLORER) -->
+    <i class="fa fa-file" title="Edit"></i>
+    <label id="file_label" for="file" style="cursor: pointer">
+      <span id="file-text">Select a file</span>
+    </label>
+    <input type="file" id="file" name="file" accept="image/png, image/jpeg" onchange="document.getElementById('file-text').textContent = this.files.length > 0 ? this.files[0].name : 'Select a file'" style="display: none">
+
+    <!-- UPLOAD BUTTON -->
+    <button id="upload-button" type="submit" class="btn btn-primary btn-block btn-large">Upload</button>
+  </form>
+{% endblock %}

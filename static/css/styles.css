@@ -1,0 +1,64 @@
+body {
+    font-family:monospace;
+    background-image: url('https://images.pexels.com/photos/1287145/pexels-photo-1287145.jpeg?cs=srgb&dl=pexels-eberhard-grossgasteiger-1287145.jpg&fm=jpg')
+}
+
+#title {
+    text-align: center;
+    padding: 50px 0px;
+}
+
+#desc {
+    text-align: center;
+    padding: 50px 0px;
+}
+
+form {
+    text-align: center;
+}
+
+.flashes {
+    color: red;
+    font-size: x-large;
+    list-style-type: none;
+}
+
+#file_label {
+    margin: 20px auto;
+}
+
+#upload-button {
+    margin: 20px auto;
+    width: 100px;
+}
+
+#home-button {
+    margin: 40px auto;
+    width: 100px;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th {
+    padding: 50px;
+    text-align: center;
+}
+
+#results {
+    margin-bottom: -40px;
+}
+
+#hex-codes-div {
+    text-align: center;
+}
+
+#horizontal-list {
+    margin-left: -40px;
+}
+
+#horizontal-list li {
+    display: inline;
+}

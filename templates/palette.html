@@ -1,0 +1,47 @@
+<!-- IMPORT BOOTSTRAP -->
+{% extends "bootstrap/base.html" %}
+
+{% block styles %}
+{{super()}}
+<!-- CSS IMPORT -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+<!-- HTML PAGE TITLE -->
+{% block title %}Image Color Palette Generator{% endblock %}
+
+{% block content %}
+  <!-- TITLE -->
+  <div>
+    <h1 id="title">Check out your generated palette below!</h1>
+  </div>
+
+  <!-- RESULTS -->
+  <table id="results">
+    <tr>
+      <!-- IMAGE -->
+      <th><img src="data:image/jpeg;base64,{{ image }}"></th>
+    </tr>
+    <tr>
+      <!-- COLOR PALETTE -->
+      <th><img src="data:image/jpeg;base64,{{ palette }}"></th>
+    </tr>
+  </table>
+
+
+  <!-- HEX VALUES -->
+  <div id="hex-codes-div">
+    <ul id="horizontal-list">
+    {% for hex_value in hex_codes %}
+      <li>{{ hex_value }}</li>
+    {% endfor %}
+    </ul>
+  </div>
+
+  <!-- RETURN HOME -->
+  <form action="{{ url_for('home') }}" method="get">
+    <!-- RETURN HOME BUTTON -->
+    <button id="home-button" type="submit" class="btn btn-primary btn-block btn-large">Home</button>
+  </form>
+
+{% endblock %}
